@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+=======
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+[System.Serializable]
+>>>>>>> main
 public abstract class Controller : MonoBehaviour
 {
     // variable to hold our pawn
@@ -19,4 +27,9 @@ public abstract class Controller : MonoBehaviour
     }
     // our child classes MUST override the way they process inputs
     public abstract void ProcessInputs();
+<<<<<<< HEAD
+=======
+
+    
+>>>>>>> main
 }

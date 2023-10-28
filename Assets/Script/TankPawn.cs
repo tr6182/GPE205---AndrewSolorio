@@ -58,4 +58,37 @@ public class TankPawn : Pawn
             Debug.LogWarning("Warning : no mover in TankPawn.RotateCounterClockwise");
         }
     }
+<<<<<<< HEAD
+=======
+
+
+    public override void Shoot()
+    {
+        shooter.Shoot(shellPrefab, fireforce, damageDone, shellLifespan);
+    }
+
+    public override void RotateTowards(Vector3 targetPostion)
+    {
+        // find the vector to our target
+        Vector3 vectorToTarget = targetPostion - transform.position;
+        // find the rotation to look down the vector 
+        Quaternion targetRotation = Quaternion.LookRotation(vectorToTarget, Vector3.up);
+        // rotate closer to that vector, but don't rotate more than our turn soeed allows in one frame
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
+    }
+    public override void MakeNoise()
+    {
+        if(noiseMaker!= null)
+        {
+            noiseMaker.volumeDistance = noiseMakerVolume;
+        }
+    }
+    public override void StopNoise()
+    {
+        if(noiseMaker != null)
+        {
+            noiseMaker.volumeDistance = 0;
+        }
+    }
+>>>>>>> main
 }
