@@ -18,10 +18,10 @@ public class DamageOnHit : MonoBehaviour
         
     }
     
-    public void onTriggerEvent (Collider other)
+    public void OnTriggerEnter (Collider other)
     {
-        //Get the Health component from the Game Object that has the collision
-        Health otherHealth = other.GetComponent<Health>();
+        //Get the Health component from the Game Object that has the collider that we are overlapping
+        Health otherHealth = other.gameObject.GetComponent<Health>();
         
         //only damage if it has a health
         if(otherHealth != null) 
@@ -30,7 +30,17 @@ public class DamageOnHit : MonoBehaviour
             otherHealth.takeDamage(damageDone, owner);
         }
 
-        //destroy ourseleves, wether we did damage or not
+        //destroy ourseleves, whether we did damage or not
         Destroy(gameObject);
+    }
+
+    public float getDamageDone()
+    {
+        return damageDone;
+    }
+
+    public void setDamageDone(float damage)
+    {
+        damageDone = damage;
     }
 }

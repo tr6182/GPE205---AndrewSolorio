@@ -22,7 +22,7 @@ public class AIController : Controller
     // Start is called before the first frame update
    public override void Start()
     {
-        ChangeState (AIState.Chase);
+        ChangeState (AIState.Patrol);
         //ChangeState(AIState.Patrol);
         // run the parent (base) start
         base.Start();
@@ -47,9 +47,9 @@ public class AIController : Controller
           DoGuardState();
                 // check for transtions
                 if (IsDistanceLessThan(target, 10))
-                     {
-                     ChangeState(AIState.Chase);
-                     }
+                {
+                ChangeState(AIState.Chase);
+                }
                 //IsCanSee(target);
                 break;
           case AIState.Chase:
@@ -92,7 +92,7 @@ public class AIController : Controller
     }
 
     // patrol state
-    protected void DoPatrolState()
+    protected virtual void DoPatrolState()
     {
         // if we have enough waypoints in out list to moce to a current waypoint
         if(waypoints.Length > currentWaypoint)

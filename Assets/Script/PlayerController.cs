@@ -9,10 +9,7 @@ public class PlayerController : Controller
     public KeyCode moveBackwardKey;
     public KeyCode rotateClockwiseKey;
     public KeyCode rotateCounterClockwiseKey;
-<<<<<<< HEAD
-=======
     public KeyCode shootKey;
->>>>>>> main
     // Start is called before the first frame update
    public override void Start()
     {
@@ -46,32 +43,21 @@ public class PlayerController : Controller
         if(Input.GetKey(moveForwardKey))
         {
             pawn.MoveForward();
-<<<<<<< HEAD
-=======
             pawn.MakeNoise();
->>>>>>> main
         }
         if(Input.GetKey(moveBackwardKey))
         {
             pawn.MoveBackward();
-<<<<<<< HEAD
-=======
             pawn.MakeNoise();
->>>>>>> main
         }
         if(Input.GetKey(rotateClockwiseKey)) 
         {
             pawn.RotateClockwise();
-<<<<<<< HEAD
-=======
             pawn.MakeNoise();
->>>>>>> main
         }
         if(Input.GetKey(rotateCounterClockwiseKey))
         {
             pawn.RotateCounterClockwise();
-<<<<<<< HEAD
-=======
             pawn.MakeNoise();
         }
         if (Input.GetKeyDown (shootKey)) 
@@ -82,7 +68,6 @@ public class PlayerController : Controller
         if (!Input.GetKeyDown (moveForwardKey) && !Input.GetKeyDown (moveBackwardKey) && !Input.GetKeyDown(rotateClockwiseKey) && !Input.GetKeyDown(rotateCounterClockwiseKey) && !Input.GetKeyDown(shootKey))
         {
             pawn.StopNoise();
->>>>>>> main
         }
         
     }

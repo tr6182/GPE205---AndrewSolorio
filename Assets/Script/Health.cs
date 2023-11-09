@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // set health to max
         currentHealth = maxHealth; 
     }
 
@@ -24,15 +25,22 @@ public class Health : MonoBehaviour
         currentHealth = currentHealth - amount;
         Debug.Log(source.name + " did " + amount + " damage to " + gameObject.name);
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        if(currentHealth < 0 ) 
+        if(currentHealth <= 0 ) 
         {
             Die(source);
         }
     }
-
+    public void Heal(float amount, Pawn source)
+    {
+        currentHealth = currentHealth + amount;
+        Debug.Log(source.name + " did " + amount + " healing to " + gameObject.name);
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    }
+    
     public void Die(Pawn source)
     {
         Debug.Log("Died");
         Destroy(gameObject);
+
     }
 }

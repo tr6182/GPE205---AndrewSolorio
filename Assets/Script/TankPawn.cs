@@ -58,13 +58,11 @@ public class TankPawn : Pawn
             Debug.LogWarning("Warning : no mover in TankPawn.RotateCounterClockwise");
         }
     }
-<<<<<<< HEAD
-=======
 
 
     public override void Shoot()
     {
-        shooter.Shoot(shellPrefab, fireforce, damageDone, shellLifespan);
+        shooter.Shoot(shellPrefab, fireForce, damageDone, shellLifespan);
     }
 
     public override void RotateTowards(Vector3 targetPostion)
@@ -90,5 +88,4 @@ public class TankPawn : Pawn
             noiseMaker.volumeDistance = 0;
         }
     }
->>>>>>> main
 }

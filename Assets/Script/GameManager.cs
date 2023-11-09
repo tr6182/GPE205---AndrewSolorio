@@ -12,12 +12,31 @@ public class GameManager : MonoBehaviour
     public GameObject playerControllerPrefab;
     public GameObject tankPawnPrefab;
 
+    //PatrolAI tank
+    public GameObject patrolAIControllerPrefab;
+
     public List<PlayerController> players;
+
+    public PawnSpawnPoint[] spawnPoints;
+
+    public MapGenerator mapGenerator;
 
     private void Start()
     {
         // temp code
-        SpawnPlayer();
+       // SpawnPlayer();
+       mapGenerator = GetComponent<MapGenerator>();
+
+       mapGenerator.GenerateMap();
+
+        spawnPoints = FindObjectsOfType<PawnSpawnPoint>();
+
+        foreach (PawnSpawnPoint p in spawnPoints)
+        {
+            Debug.Log(p.gameObject.name);
+        }
+
+        SpawnPatrolAI(spawnPoints[Random.Range(0,spawnPoints.Length)]);
     }
 
     //Awake is called when the object is first created - before even Start can run!
@@ -50,15 +69,37 @@ public class GameManager : MonoBehaviour
         Controller newController = newPlayerObj.GetComponent<Controller>();
         Pawn newPawn = newPawnObj.GetComponent<Pawn>();
 
-<<<<<<< HEAD
-=======
         newPawnObj.AddComponent<NoiseMaker>();
         newPawn.noiseMaker = newPawnObj.GetComponent<NoiseMaker>();
         newPawn.noiseMakerVolume = 3;
 
->>>>>>> main
-        //hook them up
+        newPawnObj.AddComponent<PowerupManager>();
+
+        // hook them up
         newController.pawn = newPawn;
+    }
+
+    public void SpawnPatrolAI(PawnSpawnPoint spawnPoint)
+    {
+        // spawn the AI Controller at (0,0,0) with no rotation
+        GameObject newAIObj = Instantiate(patrolAIControllerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+
+        // spawn the pawn and connect it to the controller 
+        GameObject newPawnObj = Instantiate(tankPawnPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation) as GameObject;
+
+        // attach appropriate components and hook AIController to pawn
+
+        Controller newController =newPawnObj.GetComponent<Controller>();
+        Pawn newPawn = newPawnObj.GetComponent<Pawn>();
+
+        newPawnObj.AddComponent<PowerupManager>();
+
+        newController.pawn = newPawn;
+
+        newAIObj.GetComponent<AIController>().waypoints[0] = spawnPoint.transform;
+        newAIObj.GetComponent<AIController>().waypoints[1] = spawnPoint.nextWaypoint.transform;
+        newAIObj.GetComponent<AIController>().waypoints[2] = spawnPoint.nextWaypoint.nextWaypoint.transform;
+        newAIObj.GetComponent<AIController>().waypoints[3] = spawnPoint.nextWaypoint.nextWaypoint.nextWaypoint.transform;
     }
 
 

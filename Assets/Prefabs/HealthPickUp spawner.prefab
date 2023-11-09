@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3718571962257759454
+--- !u!1 &6777939212296608344
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4990334833726304426}
-  - component: {fileID: 673553645028713377}
+  - component: {fileID: 5865556314346750519}
+  - component: {fileID: 5791899975007573401}
   m_Layer: 0
-  m_Name: PlayerController
+  m_Name: HealthPickUp spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4990334833726304426
+--- !u!4 &5865556314346750519
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3718571962257759454}
+  m_GameObject: {fileID: 6777939212296608344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.90139765, y: 1.2268687, z: -0.15814596}
+  m_LocalPosition: {x: 35.59292, y: 1.3, z: 11.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &673553645028713377
+--- !u!114 &5791899975007573401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3718571962257759454}
+  m_GameObject: {fileID: 6777939212296608344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35afb4fca7033b74f92fdcdc90bb16af, type: 3}
+  m_Script: {fileID: 11500000, guid: e5776b94ee8374f49881abe60b0ef916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pawn: {fileID: 0}
-  moveForwardKey: 119
-  moveBackwardKey: 115
-  rotateClockwiseKey: 97
-  rotateCounterClockwiseKey: 100
-  shootKey: 32
+  pickupPrefab: {fileID: 6750913988842261882, guid: 12842395fb17b0e4592ac8f5df3ad7a2, type: 3}
+  spawnDelay: 3
